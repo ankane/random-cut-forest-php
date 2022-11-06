@@ -4,12 +4,18 @@ namespace Rcf;
 
 class Forest
 {
-    public function __construct($dimensions)
+    public function __construct($dimensions, $shingleSize = 1, $sampleSize = 256, $numberOfTrees = 100, $randomSeed = 42, $parallel = false)
     {
         $this->ffi = FFI::instance();
 
         $this->dimensions = $dimensions;
         $this->pointer = $this->ffi->rcf_create($dimensions);
+
+        $this->setParam('shingle_size', $shingleSize);
+        $this->setParam('sample_size', $sampleSize);
+        $this->setParam('number_of_trees', $numberOfTrees);
+        $this->setParam('random_seed', $randomSeed);
+        $this->setParam('parallel', $parallel);
     }
 
     public function __destruct()
@@ -25,6 +31,20 @@ class Forest
     public function update($point)
     {
         $this->ffi->rcf_update($this->pointer, $this->pointPtr($point));
+    }
+
+    private function setParam($param, $value)
+    {
+        if (is_bool($value)) {
+            $value = $value ? 'true' : 'false';
+        }
+
+        if ($this->ffi->rcf_set_param($this->pointer, $param, strval($value)) != 0) {
+            // free since destructor won't be called
+            $this->ffi->rcf_free($this->pointer);
+
+            throw new \InvalidArgumentException("Invalid param for $param");
+        }
     }
 
     private function pointPtr($point)

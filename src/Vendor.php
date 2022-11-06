@@ -4,36 +4,36 @@ namespace Rcf;
 
 class Vendor
 {
-    public const VERSION = '0.1.0';
+    public const VERSION = '0.1.1';
 
     public const PLATFORMS = [
         'x86_64-linux' => [
             'file' => 'librcf-{{version}}-x86_64-unknown-linux-gnu',
-            'checksum' => '8183afdc540c969cd30706a2b8d263fe2b843e0c4f7bab546547ac00b5897bb1',
+            'checksum' => '66fc7c806be465e750e16eeb8392c6345082696b13145f84bb1f702a882f950f',
             'lib' => 'lib/librcf.so',
             'ext' => 'tar.gz'
         ],
         'aarch64-linux' => [
             'file' => 'librcf-{{version}}-aarch64-unknown-linux-gnu',
-            'checksum' => '9eca9d77f70593eb64a61345ae86c2da3958c21b626680b5f06bdd73648fc8d3',
+            'checksum' => 'ae2f95086dbc2d3d06fce234de85b997f1dfde9bc4dfaf5ae4bf02fce20c2005',
             'lib' => 'lib/librcf.so',
             'ext' => 'tar.gz'
         ],
         'x86_64-darwin' => [
             'file' => 'librcf-{{version}}-x86_64-apple-darwin',
-            'checksum' => 'f48b030f8c6a86aa8fd4f9edb85cab2e9d87ad763adb9a589ae7a0a4895f76f0',
+            'checksum' => 'a41e04a3cb7074001f741abe37697e1e278364cf81e450188c68bd3ecdebe89c',
             'lib' => 'lib/librcf.dylib',
             'ext' => 'tar.gz'
         ],
         'arm64-darwin' => [
             'file' => 'librcf-{{version}}-aarch64-apple-darwin',
-            'checksum' => 'a992eaaca2e3039d743ba6d7379ae2fe8fe4d2fef7010f25334c41a22cd247a5',
+            'checksum' => 'ae7adfd05a0f81c07b50d87f546dc542ba12acf2407d39e466e576c953e77523',
             'lib' => 'lib/librcf.dylib',
             'ext' => 'tar.gz'
         ],
         'x64-windows' => [
             'file' => 'librcf-{{version}}-x86_64-pc-windows-msvc',
-            'checksum' => 'aaf7beb33c1ce879cb9e2c24fc17447d2d3d2846c2b002532098b4dbce3a03aa',
+            'checksum' => '18e3c1989a16091e66afa2e13cc598cd2409d995be0f6b5036b7d4fed2f13fe8',
             'lib' => 'lib/rcf.dll',
             'ext' => 'zip'
         ]
@@ -88,7 +88,7 @@ class Vendor
 
     private static function libFile()
     {
-        return self::platform('lib');
+        return self::withVersion('librcf-{{version}}/' . self::platform('lib'));
     }
 
     private static function platform($key)

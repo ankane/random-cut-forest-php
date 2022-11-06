@@ -54,6 +54,21 @@ for ($i = 0; $i < 200; $i++) {
 }
 ```
 
+## Parameters
+
+Set parameters [unreleased]
+
+```php
+new Rcf\Forest(
+    $dimensions,
+    shingleSize: 1,         // shingle size to use
+    sampleSize: 256,        // points to keep in sample for each tree
+    numberOfTrees: 100,     // number of trees to use in the forest
+    randomSeed: 42,         // random seed to use
+    parallel: false         // enable parallel execution
+)
+```
+
 ## Reference
 
 - [Robust Random Cut Forest Based Anomaly Detection On Streams](https://proceedings.mlr.press/v48/guha16.pdf)
