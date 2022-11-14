@@ -12,6 +12,12 @@ Run:
 composer require ankane/rcf
 ```
 
+And download the shared library:
+
+```sh
+composer exec -- php -r "require 'vendor/autoload.php'; Rcf\Vendor::check(true);"
+```
+
 ## Getting Started
 
 Create a forest with 3 dimensions
