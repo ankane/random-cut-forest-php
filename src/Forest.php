@@ -4,10 +4,9 @@ namespace Rcf;
 
 class Forest
 {
-    // TODO make private in 0.2.0
-    public $ffi;
-    public $dimensions;
-    public $pointer;
+    private $ffi;
+    private $dimensions;
+    private $pointer;
 
     public function __construct($dimensions, $shingleSize = 1, $sampleSize = 256, $numberOfTrees = 100, $randomSeed = 42, $parallel = false)
     {
