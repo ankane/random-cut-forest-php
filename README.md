@@ -2,7 +2,7 @@
 
 [Random Cut Forest](https://github.com/aws/random-cut-forest-by-aws) (RCF) anomaly detection for PHP
 
-[![Build Status](https://github.com/ankane/random-cut-forest-php/workflows/build/badge.svg?branch=master)](https://github.com/ankane/random-cut-forest-php/actions)
+[![Build Status](https://github.com/ankane/random-cut-forest-php/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/random-cut-forest-php/actions)
 
 ## Installation
 
