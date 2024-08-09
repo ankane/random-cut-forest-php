@@ -12,10 +12,19 @@ Run:
 composer require ankane/rcf
 ```
 
-And download the shared library:
+Add scripts to `composer.json` to download the shared library:
+
+```json
+    "scripts": {
+        "post-install-cmd": "Rcf\\Vendor::check",
+        "post-update-cmd": "Rcf\\Vendor::check"
+    }
+```
+
+And run:
 
 ```sh
-composer exec -- php -r "require 'vendor/autoload.php'; Rcf\Vendor::check(true);"
+composer install
 ```
 
 ## Getting Started
