@@ -1,4 +1,4 @@
-## 0.1.3 (unreleased)
+## 0.2.0 (unreleased)
 
 - Dropped support for PHP < 8.1
 
