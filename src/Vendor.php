@@ -4,36 +4,36 @@ namespace Rcf;
 
 class Vendor
 {
-    public const VERSION = '0.1.1';
+    public const VERSION = '0.2.0';
 
     public const PLATFORMS = [
         'x86_64-linux' => [
             'file' => 'librcf-{{version}}-x86_64-unknown-linux-gnu',
-            'checksum' => '66fc7c806be465e750e16eeb8392c6345082696b13145f84bb1f702a882f950f',
+            'checksum' => 'df88398e8dd950fbc503b382b280823713ca53931561e25b6d2f1c868bd37811',
             'lib' => 'lib/librcf.so',
             'ext' => 'tar.gz'
         ],
         'aarch64-linux' => [
             'file' => 'librcf-{{version}}-aarch64-unknown-linux-gnu',
-            'checksum' => 'ae2f95086dbc2d3d06fce234de85b997f1dfde9bc4dfaf5ae4bf02fce20c2005',
+            'checksum' => 'a420ae9792eac906efe895f50b4b89fe92d5711baba848415d07d89cbec6e625',
             'lib' => 'lib/librcf.so',
             'ext' => 'tar.gz'
         ],
         'x86_64-darwin' => [
             'file' => 'librcf-{{version}}-x86_64-apple-darwin',
-            'checksum' => 'a41e04a3cb7074001f741abe37697e1e278364cf81e450188c68bd3ecdebe89c',
+            'checksum' => 'bfd2240cd40026791a6d9c44262f23a0a7439576c95d1d08b6b697a048aa16e9',
             'lib' => 'lib/librcf.dylib',
             'ext' => 'tar.gz'
         ],
         'arm64-darwin' => [
             'file' => 'librcf-{{version}}-aarch64-apple-darwin',
-            'checksum' => 'ae7adfd05a0f81c07b50d87f546dc542ba12acf2407d39e466e576c953e77523',
+            'checksum' => '01fcb7b1330792223a5c7272ebe25a2ada2b081908331defe88242410ca5cddb',
             'lib' => 'lib/librcf.dylib',
             'ext' => 'tar.gz'
         ],
         'x64-windows' => [
             'file' => 'librcf-{{version}}-x86_64-pc-windows-msvc',
-            'checksum' => '18e3c1989a16091e66afa2e13cc598cd2409d995be0f6b5036b7d4fed2f13fe8',
+            'checksum' => '6f4d42a0e56b4845310868b5ac8990a6001ef5f2676053c40a244d53b03a1716',
             'lib' => 'lib/rcf.dll',
             'ext' => 'zip'
         ]

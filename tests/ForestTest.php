@@ -25,8 +25,8 @@ final class ForestTest extends TestCase
         }
 
         $this->assertEqualsWithDelta(0, $scores[0], 0.00001);
-        $this->assertEqualsWithDelta(0, $scores[63], 0.00001);
-        $this->assertGreaterThan(0.5, $scores[64]);
+        $this->assertEqualsWithDelta(0, $scores[64], 0.00001);
+        $this->assertGreaterThan(0.5, $scores[65]);
         $this->assertLessThan(1.2, $scores[197]);
         $this->assertGreaterThan(3, $scores[198]);
         $this->assertLessThan(1.2, $scores[199]);
