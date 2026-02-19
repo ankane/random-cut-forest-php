@@ -13,7 +13,7 @@ class Forest
         $this->ffi = FFI::instance();
 
         $this->dimensions = $dimensions;
-        $this->pointer = $this->ffi->rcf_create($dimensions);
+        $this->pointer = new Pointer($this->ffi->rcf_create($dimensions), $this->ffi->rcf_free);
 
         $this->setParam('shingle_size', $shingleSize);
         $this->setParam('sample_size', $sampleSize);
@@ -22,19 +22,14 @@ class Forest
         $this->setParam('parallel', $parallel);
     }
 
-    public function __destruct()
-    {
-        $this->ffi->rcf_free($this->pointer);
-    }
-
     public function score($point)
     {
-        return $this->ffi->rcf_score($this->pointer, $this->pointPtr($point));
+        return $this->ffi->rcf_score($this->pointer->ptr, $this->pointPtr($point));
     }
 
     public function update($point)
     {
-        $this->ffi->rcf_update($this->pointer, $this->pointPtr($point));
+        $this->ffi->rcf_update($this->pointer->ptr, $this->pointPtr($point));
     }
 
     private function setParam($param, $value)
@@ -43,10 +38,7 @@ class Forest
             $value = $value ? 'true' : 'false';
         }
 
-        if ($this->ffi->rcf_set_param($this->pointer, $param, strval($value)) != 0) {
-            // free since destructor won't be called
-            $this->ffi->rcf_free($this->pointer);
-
+        if ($this->ffi->rcf_set_param($this->pointer->ptr, $param, strval($value)) != 0) {
             throw new \InvalidArgumentException("Invalid param for $param");
         }
     }
